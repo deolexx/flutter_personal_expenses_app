@@ -15,11 +15,11 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
-
-  final List<Transaction> transactions = [
-    Transaction(id: 't1', title: 'Morning cofee', amount: 45.0, date: DateTime.now()),
-    Transaction(id: 't2', title: 'New Shoes', amount: 155.50, date: DateTime.now()),
+class MyHomePage extends StatelessWidget {final List<Transaction> transactions = [
+    Transaction(
+        id: 't1', title: 'Morning cofee', amount: 45.0, date: DateTime.now()),
+    Transaction(
+        id: 't2', title: 'New Shoes', amount: 155.50, date: DateTime.now()),
   ];
 
   @override
@@ -30,15 +30,38 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-        Container(width: double.infinity,child:  Card(
-          elevation: 5,
-          child: Container(
-            child: Text("Chart"),
-          )),
-        ),
-
-        Column(children: transactions.map((tx) => Card(child: Text(tx.title),)).toList()),
-      ]),
+            Container(
+              width: double.infinity,
+              child: Card(
+                  elevation: 5,
+                  child: Container(
+                    child: Text("Chart"),
+                  )),
+            ),
+            Column(
+              children: transactions
+                  .map((tx) => Card(
+                        child: Row(children: [
+                          Container(
+                              padding: EdgeInsets.all(5),
+                              margin: const EdgeInsets.symmetric(
+                                  vertical: 10, horizontal: 15),
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: Colors.black, width: 2),
+                              ),
+                              child: Text(tx.amount.toString())),
+                          Column(
+                            children: [
+                              Text(tx.title),
+                              Text(tx.date.toString())
+                            ],
+                          )
+                        ]),
+                      ))
+                  .toList(),
+            ),
+          ]),
     );
   }
 }
