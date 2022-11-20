@@ -15,7 +15,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {final List<Transaction> transactions = [
+class MyHomePage extends StatelessWidget {
+  final List<Transaction> transactions = [
     Transaction(
         id: 't1', title: 'Morning cofee', amount: 45.0, date: DateTime.now()),
     Transaction(
@@ -43,18 +44,38 @@ class MyHomePage extends StatelessWidget {final List<Transaction> transactions =
                   .map((tx) => Card(
                         child: Row(children: [
                           Container(
-                              padding: EdgeInsets.all(5),
+                              padding: const EdgeInsets.all(10),
                               margin: const EdgeInsets.symmetric(
                                   vertical: 10, horizontal: 15),
                               decoration: BoxDecoration(
                                 border:
-                                    Border.all(color: Colors.black, width: 2),
+                                    Border.all(color: Colors.purple, width: 2),
                               ),
-                              child: Text(tx.amount.toString())),
+                              child: Text(
+                                tx.amount.toString(),
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20,
+                                    color: Colors.purple),
+                              )),
                           Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(tx.title),
-                              Text(tx.date.toString())
+                              Text(
+                                tx.title,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              Text(
+                                tx.date.toString(),
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.grey,
+                                ),
+                              )
                             ],
                           )
                         ]),
