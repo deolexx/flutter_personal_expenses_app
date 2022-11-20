@@ -29,7 +29,7 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Flutter App')),
       body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          // mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
@@ -39,6 +39,18 @@ class MyHomePage extends StatelessWidget {
                   child: Container(
                     child: Text("Chart"),
                   )),
+            ),
+            Card(
+              child: Column(
+                children: [
+                  TextField(
+
+                  ),
+                  TextField(
+
+                  ),
+                ],
+              ),
             ),
             Column(
               children: transactions
@@ -53,7 +65,7 @@ class MyHomePage extends StatelessWidget {
                                     Border.all(color: Colors.purple, width: 2),
                               ),
                               child: Text(
-                               '\$${tx.amount}',
+                                '\$${tx.amount}',
                                 style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 20,
