@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import './transaction.dart';
+import 'models/transaction.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,16 +24,13 @@ class MyHomePage extends StatelessWidget {
         id: 't2', title: 'New Shoes', amount: 155.50, date: DateTime.now()),
   ];
 
-   // String titleInput='';
-   // String amountInput='';
-
-   final titleController = TextEditingController();
-   final amountController = TextEditingController();
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Flutter App')),
+      appBar: AppBar(title:const Text('Flutter App')),
       body: Column(
           // mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -55,16 +52,13 @@ class MyHomePage extends StatelessWidget {
                     TextField(
                       decoration: const InputDecoration(labelText: 'Title'),
                       controller: titleController,
-                      // onChanged: (value) => titleInput = value,
                     ),
                     TextField(
                       decoration: const InputDecoration(labelText: 'Amount'),
                       controller: amountController,
-                      // onChanged: (value) => amountInput = value,
                     ),
                     ElevatedButton(
                       onPressed: () => {
-                       // print(titleInput+ amountInput)
                         print(titleController.text),
                         print(amountController.text)
                       },
