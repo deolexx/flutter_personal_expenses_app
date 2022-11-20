@@ -24,6 +24,9 @@ class MyHomePage extends StatelessWidget {
         id: 't2', title: 'New Shoes', amount: 155.50, date: DateTime.now()),
   ];
 
+   String titleInput='';
+   String amountInput='';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,12 +51,16 @@ class MyHomePage extends StatelessWidget {
                   children: [
                     TextField(
                       decoration: const InputDecoration(labelText: 'Title'),
+                      onChanged: (value) => titleInput = value,
                     ),
                     TextField(
                       decoration: const InputDecoration(labelText: 'Amount'),
+                      onChanged: (value) => amountInput = value,
                     ),
                     ElevatedButton(
-                      onPressed: () => {},
+                      onPressed: () => {
+                       print(titleInput+ amountInput)
+                      },
                       style: ButtonStyle(
                           backgroundColor:
                               MaterialStateProperty.all(Colors.purple)),
