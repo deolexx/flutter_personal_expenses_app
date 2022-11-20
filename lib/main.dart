@@ -1,23 +1,40 @@
 import 'package:flutter/material.dart';
 
-
-void main(){
+void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget{
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-  return MaterialApp(home: MyHomePage(),title: 'MyApp',);
+    return MaterialApp(
+      home: MyHomePage(),
+      title: 'MyApp',
+    );
   }
 }
 
-class MyHomePage extends StatelessWidget{
+class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-  return Scaffold(
-    appBar: AppBar(title: Text('Flutter App')),
-    body: Center(child: Text("Hello there")),
-  );
+    return Scaffold(
+      appBar: AppBar(title: Text('Flutter App')),
+      body: Column(children: [
+        Container(width: double.infinity,child:  Card(
+          elevation: 5,
+          child: Container(
+            child: Text("Chart"),
+          )),
+        ),
+
+        Card(
+          color: Colors.blue,
+          elevation: 5,
+          child: Container(
+            child: Text("List of Tx"),
+          ),
+        ),
+      ]),
+    );
   }
 }
