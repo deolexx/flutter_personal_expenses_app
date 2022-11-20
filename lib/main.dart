@@ -52,6 +52,13 @@ class MyHomePage extends StatelessWidget {
                     TextField(
                       decoration: const InputDecoration(labelText: 'Amount'),
                     ),
+                    ElevatedButton(
+                      onPressed: () => {},
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.purple)),
+                      child: const Text('Add Transaction'),
+                    )
                   ],
                 ),
               ),
