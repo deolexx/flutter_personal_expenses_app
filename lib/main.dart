@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'models/transaction.dart';
+import 'package:flutter_personal_expenses_app/widgets/transaction_list.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,20 +16,13 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  final List<Transaction> transactions = [
-    Transaction(
-        id: 't1', title: 'Morning cofee', amount: 45.0, date: DateTime.now()),
-    Transaction(
-        id: 't2', title: 'New Shoes', amount: 155.50, date: DateTime.now()),
-  ];
-
   final titleController = TextEditingController();
   final amountController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title:const Text('Flutter App')),
+      appBar: AppBar(title: const Text('Flutter App')),
       body: Column(
           // mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -71,49 +63,7 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
             ),
-            Column(
-              children: transactions
-                  .map((tx) => Card(
-                        child: Row(children: [
-                          Container(
-                              padding: const EdgeInsets.all(10),
-                              margin: const EdgeInsets.symmetric(
-                                  vertical: 10, horizontal: 15),
-                              decoration: BoxDecoration(
-                                border:
-                                    Border.all(color: Colors.purple, width: 2),
-                              ),
-                              child: Text(
-                                '\$${tx.amount}',
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20,
-                                    color: Colors.purple),
-                              )),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                tx.title,
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15,
-                                  color: Colors.black,
-                                ),
-                              ),
-                              Text(
-                                DateFormat.yMMMd().format(tx.date),
-                                style: const TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.grey,
-                                ),
-                              )
-                            ],
-                          )
-                        ]),
-                      ))
-                  .toList(),
-            ),
+            TransactionList()
           ]),
     );
   }
