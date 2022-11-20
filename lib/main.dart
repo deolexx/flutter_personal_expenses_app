@@ -19,7 +19,9 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Flutter App')),
-      body: Column(children: [
+      body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
         Container(width: double.infinity,child:  Card(
           elevation: 5,
           child: Container(
