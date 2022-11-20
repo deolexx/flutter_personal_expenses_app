@@ -41,15 +41,19 @@ class MyHomePage extends StatelessWidget {
                   )),
             ),
             Card(
-              child: Column(
-                children: [
-                  TextField(
-
-                  ),
-                  TextField(
-
-                  ),
-                ],
+              child: Container(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    TextField(
+                      decoration: const InputDecoration(labelText: 'Title'),
+                    ),
+                    TextField(
+                      decoration: const InputDecoration(labelText: 'Amount'),
+                    ),
+                  ],
+                ),
               ),
             ),
             Column(
