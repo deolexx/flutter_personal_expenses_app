@@ -20,6 +20,9 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Flutter App'),
+        actions: [
+          IconButton(onPressed: () => {}, icon: Icon(Icons.add))
+        ],
       ),
       body:
         SingleChildScrollView(
