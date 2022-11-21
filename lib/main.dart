@@ -42,7 +42,10 @@ class MyHomePage extends StatelessWidget {
                 UserTransactions()
               ]),
         ),
-
+      floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () => {},),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
