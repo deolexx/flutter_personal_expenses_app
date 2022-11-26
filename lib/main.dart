@@ -13,7 +13,19 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: MyHomePage(),
       title: 'Personal Expenses',
-      theme: ThemeData(primarySwatch:Colors.purple),
+      theme: ThemeData(
+          colorScheme: const ColorScheme(
+              brightness: Brightness.light,
+              primary: Colors.teal,
+              onPrimary: Colors.white,
+              secondary: Colors.lightBlue,
+              onSecondary: Colors.teal,
+              error: Colors.deepOrange,
+              onError: Colors.pink,
+              background: Colors.brown,
+              onBackground: Colors.brown,
+              surface: Colors.brown,
+              onSurface: Colors.brown)),
     );
   }
 }
@@ -24,7 +36,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   final List<Transaction> _userTransactions = [
     Transaction(
         id: 't1', title: 'Morning cofee', amount: 45.0, date: DateTime.now()),
@@ -58,7 +69,11 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Personal Expenses'),
-        actions: [IconButton(onPressed:()=> _startAddNewTransaction(context) , icon: Icon(Icons.add))],
+        actions: [
+          IconButton(
+              onPressed: () => _startAddNewTransaction(context),
+              icon: Icon(Icons.add))
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -79,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: ()=> _startAddNewTransaction(context),
+        onPressed: () => _startAddNewTransaction(context),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );

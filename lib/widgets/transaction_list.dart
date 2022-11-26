@@ -17,25 +17,25 @@ class TransactionList extends StatelessWidget {
           return Card(
             child: Row(children: [
               Container(
-                  padding: const EdgeInsets.all(10),
-                  margin: const EdgeInsets.symmetric(
+                  padding:  EdgeInsets.all(10),
+                  margin:  EdgeInsets.symmetric(
                       vertical: 10, horizontal: 15),
                   decoration: BoxDecoration(
-                    border: Border.all(color: Theme.of(context).primaryColor, width: 2),
+                    border: Border.all(color: Theme.of(context).colorScheme.primary, width: 5),
                   ),
                   child: Text(
                     '\$${transactions[index].amount.toStringAsFixed(2)}',
-                    style: const TextStyle(
+                    style:  TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
-                        color: Colors.purple),
+                        color: Theme.of(context).colorScheme.primary),
                   )),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     transactions[index].title,
-                    style: const TextStyle(
+                    style:  TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 15,
                       color: Colors.black,
@@ -43,7 +43,7 @@ class TransactionList extends StatelessWidget {
                   ),
                   Text(
                     DateFormat.yMMMd().format(transactions[index].date),
-                    style: const TextStyle(
+                    style:  TextStyle(
                       fontSize: 12,
                       color: Colors.grey,
                     ),
