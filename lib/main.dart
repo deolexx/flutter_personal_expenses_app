@@ -13,14 +13,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: MyHomePage(),
       title: 'Personal Expenses',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          appBarTheme: AppBarTheme(
-              titleTextStyle: TextStyle(
-                  fontFamily: 'OpenSans',
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold
-              )
+        appBarTheme: AppBarTheme(
+          titleTextStyle: TextStyle(
+            fontFamily: 'QuickSand',
+            fontSize: 25,
+            fontWeight: FontWeight.bold,
           ),
+          toolbarTextStyle: TextStyle(
+            fontFamily: 'OpenSans',
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+          ),
+        ),
         colorScheme: const ColorScheme(
             brightness: Brightness.light,
             primary: Colors.teal,
@@ -33,8 +39,6 @@ class MyApp extends StatelessWidget {
             onBackground: Colors.brown,
             surface: Colors.brown,
             onSurface: Colors.brown),
-        fontFamily: 'QuickSand',
-
       ),
     );
   }
