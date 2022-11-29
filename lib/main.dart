@@ -14,18 +14,22 @@ class MyApp extends StatelessWidget {
       home: MyHomePage(),
       title: 'Personal Expenses',
       theme: ThemeData(
-          colorScheme: const ColorScheme(
-              brightness: Brightness.light,
-              primary: Colors.teal,
-              onPrimary: Colors.white,
-              secondary: Colors.lightBlue,
-              onSecondary: Colors.teal,
-              error: Colors.deepOrange,
-              onError: Colors.pink,
-              background: Colors.brown,
-              onBackground: Colors.brown,
-              surface: Colors.brown,
-              onSurface: Colors.brown)),
+
+        colorScheme: const ColorScheme(
+            brightness: Brightness.light,
+            primary: Colors.teal,
+            onPrimary: Colors.white,
+            secondary: Colors.lightBlue,
+            onSecondary: Colors.teal,
+            error: Colors.deepOrange,
+            onError: Colors.pink,
+            background: Colors.brown,
+            onBackground: Colors.brown,
+            surface: Colors.brown,
+            onSurface: Colors.brown),
+        fontFamily: 'QuickSand',
+
+      ),
     );
   }
 }
