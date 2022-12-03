@@ -50,7 +50,7 @@ class _NewTransactionState extends State<NewTransaction> {
               ElevatedButton(
                 onPressed: submitData,
                 style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.purple)),
+                    backgroundColor: MaterialStateProperty.all(Theme.of(context).colorScheme.primary)),
                 child: const Text('Add Transaction'),
               )
             ],
