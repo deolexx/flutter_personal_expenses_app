@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         ),
         colorScheme: const ColorScheme(
             brightness: Brightness.light,
-            primary: Colors.teal,
+            primary: Colors.lightBlue,
             onPrimary: Colors.white,
             secondary: Colors.lightBlue,
             onSecondary: Colors.teal,
@@ -108,6 +108,8 @@ class _MyHomePageState extends State<MyHomePage> {
             ]),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        foregroundColor: Colors.white,
         child: Icon(Icons.add),
         onPressed: () => _startAddNewTransaction(context),
       ),
