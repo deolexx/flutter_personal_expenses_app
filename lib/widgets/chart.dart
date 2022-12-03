@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../models/transaction.dart';
+import './chart_bar.dart';
 
 class Chart extends StatelessWidget {
   const Chart({Key? key, required this.recentTransactions}) : super(key: key);
@@ -25,6 +26,13 @@ class Chart extends StatelessWidget {
     });
   }
 
+  double get maxSpending {
+    return groupedTransactionValues.fold(
+        0.0,
+        (previousValue, element) =>
+            previousValue + double.parse(element['amount'].toString()));
+  }
+
   @override
   Widget build(BuildContext context) {
     print(groupedTransactionValues);
@@ -33,7 +41,11 @@ class Chart extends StatelessWidget {
       margin: EdgeInsets.all(20),
       child: Row(
         children: groupedTransactionValues.map((data) {
-          return Text('${data['day']} ${data['amount']}'.toString());
+          // return Text('${data['day']} ${data['amount']}'.toString());
+          return ChartBar(
+              label: data['day'].toString(),
+              spendingAmount: double.parse(data['amount'].toString()),
+              spendingPctOfTotal: (data['amount'] as double) / maxSpending);
         }).toList(),
       ),
     );
