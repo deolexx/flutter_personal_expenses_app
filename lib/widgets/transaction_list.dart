@@ -34,40 +34,24 @@ class TransactionList extends StatelessWidget {
           : ListView.builder(
               itemBuilder: (context, index) {
                 return Card(
-                  child: Row(children: [
-                    Container(
-                        padding: EdgeInsets.all(10),
-                        margin:
-                            EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              color: Theme.of(context).colorScheme.primary,
-                              width: 5),
-                        ),
-                        child: Text(
-                          '\$${transactions[index].amount.toStringAsFixed(2)}',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                              color: Theme.of(context).colorScheme.primary),
-                        )),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          transactions[index].title,
-                          style: Theme.of(context).appBarTheme.toolbarTextStyle,
-                        ),
-                        Text(
-                          DateFormat.yMMMd().format(transactions[index].date),
-                          style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.grey,
-                          ),
-                        )
-                      ],
-                    )
-                  ]),
+                  elevation: 5,
+                  margin: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                  child: ListTile(
+                    title: Text(transactions[index].title),
+                    subtitle: Text(
+                        DateFormat.yMMMMd().format(transactions[index].date)),
+                    leading: CircleAvatar(
+                      radius: 40,
+                      child: Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Text('\$${transactions[index].amount}')),
+                    ),
+                    trailing: IconButton(
+                      onPressed: () => null,
+                      icon: Icon(Icons.delete),
+                      color: Theme.of(context).colorScheme.error,
+                    ),
+                  ),
                 );
               },
               itemCount: transactions.length,
