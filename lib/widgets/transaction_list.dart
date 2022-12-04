@@ -42,10 +42,14 @@ class TransactionList extends StatelessWidget {
                   subtitle: Text(
                       DateFormat.yMMMMd().format(transactions[index].date)),
                   leading: CircleAvatar(
+                    foregroundColor: Theme.of(context).colorScheme.onPrimary,
+                    backgroundColor: Theme.of(context).colorScheme.primary,
                     radius: 40,
-                    child: Padding(
-                        padding: EdgeInsets.all(10),
-                        child: Text('\$${transactions[index].amount}')),
+                    child: FittedBox(
+                      child: Padding(
+                          padding: EdgeInsets.all(20),
+                          child: Text('\$${transactions[index].amount}')),
+                    ),
                   ),
                   trailing: IconButton(
                     onPressed: () => deleteTx(transactions[index].id),
